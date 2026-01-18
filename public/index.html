@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Signup - Careasa</title>
 
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#75b39f",
+            "background-light": "#f7f7f7",
+            "background-dark": "#2b3d4f",
+          },
+          fontFamily: {
+            display: ["Manrope", "sans-serif"]
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px"
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color: #75b39f !important;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light min-h-screen flex flex-col font-display">
+
+<!-- ================= HEADER ================= -->
+<header class="relative w-full bg-white border-b border-gray-200 px-6 py-4">
+  <!-- Logo (left) -->
+  <div class="absolute left-6 top-1/2 -translate-y-1/2">
+    <img src="/careasa-logo.jpg" class="h-16 w-auto" />
+  </div>
+
+  <!-- Centered text -->
+  <h2 class="text-[#131615] text-3xl font-extrabold tracking-tight text-center">
+    Careasa
+  </h2>
+</header>
+
+
+
+<!-- ================= MAIN ================= -->
+<main class="flex-1 flex justify-center py-12 px-4">
+  <div class="max-w-[720px] w-full flex flex-col gap-8">
+
+    <!-- HEADING -->
+    <div class="flex flex-col gap-3 px-4">
+      <h1 class="text-[#131615] text-4xl font-black leading-tight tracking-tight">
+        Welcome Team! <br class="hidden sm:block"/>
+        Let’s get started with the sign up.
+      </h1>
+      <p class="text-[#6e7c78] text-lg max-w-xl">
+        Please complete the details below to finish your onboarding with Careasa.
+      </p>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <form id="teamForm" class="p-8 flex flex-col gap-8" enctype="multipart/form-data">
+
+        <!-- SECTION: PERSONAL INFO -->
+        <div>
+          <div class="flex items-center gap-2 mb-6">
+            <span class="material-symbols-outlined text-primary">person</span>
+            <h2 class="text-[#131615] text-xl font-bold">Personal Information</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <label class="flex flex-col gap-2 md:col-span-2">
+              <span class="text-sm font-semibold">Full Name</span>
+              <input id="fullName" name="fullName" required
+                class="form-input w-full h-12 px-4 rounded-lg border-gray-200"
+                placeholder="e.g. Alex Mitchell"/>
+            </label>
+
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-semibold">Email Address</span>
+              <input id="email" name="email" type="email" required
+                class="form-input w-full h-12 px-4 rounded-lg border-gray-200"
+                placeholder="alex@example.com"/>
+            </label>
+
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-semibold">Phone Number</span>
+              <input id="phone" name="phone" type="tel" required
+                class="form-input w-full h-12 px-4 rounded-lg border-gray-200"
+                placeholder="+1 555 000 0000"/>
+            </label>
+
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-semibold">Date of Birth</span>
+              <input id="dob" name="dob" type="date" required
+                class="form-input w-full h-12 px-4 rounded-lg border-gray-200"/>
+            </label>
+
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-semibold">Department</span>
+              <select id="department" name="department" required
+                class="form-select w-full h-12 px-4 rounded-lg border-gray-200">
+                <option value="">Select Department</option>
+                <option>Development</option>
+                <option>Human Resource</option>
+                <option>Cloud</option>
+                <option>Psychology</option>
+                <option>Cyber Security</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <label class="flex flex-col gap-2 md:col-span-2">
+              <span class="text-sm font-semibold">Address</span>
+              <textarea id="address" name="address" required
+                class="form-textarea w-full min-h-[100px] px-4 py-3 rounded-lg border-gray-200"
+                placeholder="Street, City, State, ZIP"></textarea>
+            </label>
+
+            <label class="flex flex-col gap-2 md:col-span-2">
+              <span class="text-sm font-semibold">Agreement/Onboarding Letter (PDF/DOC)</span>
+              <input id="agreement" name="agreement" type="file"
+                accept=".pdf,.doc,.docx" required />
+            </label>
+          </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <button type="submit"
+          class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-lg transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 text-lg">
+          <span>Save & Continue</span>
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+
+      </form>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="text-center px-4 pb-12">
+      <div class="flex items-center justify-center gap-2 text-gray-500 text-sm mb-2">
+        <span class="material-symbols-outlined text-sm">lock</span>
+        <p>Your data is encrypted and stored securely.</p>
+      </div>
+    </footer>
+
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
